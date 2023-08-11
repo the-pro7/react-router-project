@@ -7,6 +7,7 @@ font-family: 'Raleway', sans-serif;
 // Partials
 @import "./styles/config";
 @import "./styles/Navbar";
+@import "./styles/Home";
 
 // Variables
 
@@ -25,4 +26,10 @@ picture {
 
 body {
     font-family: family(open);
+    overflow: hidden;
+}
+
+// Unscoped elements
+.loading {
+    text-align: center;
 }

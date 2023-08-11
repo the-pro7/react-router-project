@@ -1,7 +1,8 @@
 // Variables
 $page-theme: #fefcfc;
 $page-text-color: #212529;
-$accent-1: #228be6;
+$page-text-color-accent: #6c63ff;
+// $accent-2: #228be6;
 
 @function family($name) {
   @if $name == "open" {
