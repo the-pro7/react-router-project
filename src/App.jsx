@@ -1,7 +1,7 @@
 import { useState, lazy, Suspense } from "react";
 import "./App.scss";
 import { Route, Routes } from "react-router-dom";
-// COmponents lazilt loaded
+// COmponents lazily loaded
 const Navbar = lazy(() => import("./paths/Navbar"));
 const Home = lazy(() => import("./paths/Home"));
 

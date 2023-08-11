@@ -81,7 +81,7 @@ const Navbar = ({ moviePageShowing }) => {
             </button>
             <button>
               <FontAwesomeIcon icon={faDesktop} />
-              Sytem
+              System
             </button>
           </div>
         </li>
