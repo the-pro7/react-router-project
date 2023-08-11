@@ -1,0 +1,32 @@
+// Variables
+$page-theme: #fefcfc;
+$page-text-color: #212529;
+$accent-1: #228be6;
+
+@function family($name) {
+  @if $name == "open" {
+    @return "Open Sans", sans-serif;
+  } @else if $name == "raleway" {
+    @return "Raleway", sans-serif;
+  } @else {
+    @return "Borel", cursive;
+  }
+}
+
+//   Flex mixin - center
+@mixin flexCentered($dir, $gap, $justify) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+    gap: $gap;
+    flex-direction: $dir;
+}
+
+
+// Media query mixin
+@mixin media($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        @content;
+    }
+}
+

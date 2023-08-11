@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Borel&family=Open+Sans:wght@400;500;700&family=Raleway:wght@400;500;700&display=swap");
+/*
+font-family: 'Borel', cursive;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Raleway', sans-serif;
+*/
+// Partials
+@import "./styles/config";
+@import "./styles/Navbar";
+
+// Variables
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
+img,
+svg,
+picture {
+    max-width: 100%;
+}
+
+body {
+    font-family: family(open);
+}
