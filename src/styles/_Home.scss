@@ -1,0 +1,6 @@
+@import "./config";
+
+.hero {
+  border: 3px solid $page-text-color-accent;
+  @include flexCentered(column, 2em, center);
+}
