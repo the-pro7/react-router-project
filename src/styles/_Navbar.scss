@@ -128,7 +128,7 @@ $breakpoint: 700px;
         font-size: 1.5rem;
         border: 2px solid $page-text-color-accent;
         border-radius: 4rem;
-        padding-block: .2em;
+        padding-block: 0.2em;
         background: $page-text-color-accent;
         color: #fff;
         transition: background 200ms ease-in-out;
@@ -143,7 +143,7 @@ $breakpoint: 700px;
           background: $page-text-color-accent;
           border-radius: 1rem;
           position: absolute;
-          top: 0;
+          top: 3rem;
           width: 100%;
           padding-block: 1em;
           transition: all 400ms ease-in-out;
@@ -167,6 +167,15 @@ $breakpoint: 700px;
               background: lighten($page-text-color-accent, 10%);
             }
           }
+        }
+      }
+
+      // When active
+      .theme-selector.show {
+        .theme-selector__themes {
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: all;
         }
       }
     }
