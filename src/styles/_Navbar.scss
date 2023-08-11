@@ -6,9 +6,24 @@ $breakpoint: 700px;
 .nav {
   border-bottom: 1px solid $page-text-color;
   padding: 1em 0;
-  @include flexCentered(row, unset, space-evenly);
+  @include flexCentered(row, unset, space-around);
   position: relative;
   backdrop-filter: blur(15px);
+
+  &__logo {
+    position: relative;
+    color: $page-text-color;
+    mix-blend-mode: color;
+
+    .play {
+      color: $page-text-color-accent;
+      position: absolute;
+      left: 0;
+      top: -0.5rem;
+      z-index: -1;
+      font-size: 3rem;
+    }
+  }
 
   // Search box
   &__search {
@@ -55,14 +70,20 @@ $breakpoint: 700px;
         background: $page-text-color;
         border-radius: 0.5rem;
         height: 5px;
-        transition: transform 200ms ease;
+        transition: all 200ms ease;
+      }
+
+      &:hover {
+        .burger {
+          background: $page-text-color-accent;
+        }
       }
     }
 
     // Hamburger menu active
     &__hamburger.active {
       .burger1 {
-        transform: rotate(45deg) translateY(15px);
+        transform: rotate(45deg) translateY(17px);
       }
 
       .burger2 {
@@ -76,17 +97,16 @@ $breakpoint: 700px;
     }
 
     &__items {
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 0;
       padding: 2em;
-      height: calc(100dvh - 10px);
+      height: 100dvh;
       width: 45%;
       background: $page-theme;
       box-shadow: 3px 4px 10px rgb(0 0 0 / 0.2);
       transition: transform 200ms ease-in-out;
       transform: translateX(100%);
-
       @include flexCentered(column, 2em, center);
 
       &--item {
@@ -94,6 +114,59 @@ $breakpoint: 700px;
           text-decoration: none;
           color: $page-text-color;
           font-size: 1.5rem;
+        }
+      }
+
+      // Theme selector item
+      .theme-selector {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-flow: column wrap;
+        width: 100%;
+        cursor: pointer;
+        font-size: 1.5rem;
+        border: 2px solid $page-text-color-accent;
+        border-radius: 4rem;
+        padding-block: .2em;
+        background: $page-text-color-accent;
+        color: #fff;
+        transition: background 200ms ease-in-out;
+
+        &:hover {
+          background: lighten($page-text-color-accent, 10%);
+        }
+
+        &__themes {
+          display: inherit;
+          flex-direction: column;
+          background: $page-text-color-accent;
+          border-radius: 1rem;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          padding-block: 1em;
+          transition: all 400ms ease-in-out;
+          transform: translateY(50%);
+          opacity: 0;
+          pointer-events: none;
+
+          button {
+            padding: 0.5em 1.5em;
+            border: 0;
+            display: inherit;
+            gap: 1em;
+            border: 0;
+            font-size: 1.3rem;
+            background: transparent;
+            color: $page-theme;
+            cursor: pointer;
+            transition: all 200ms ease;
+
+            &:hover {
+              background: lighten($page-text-color-accent, 10%);
+            }
+          }
         }
       }
     }

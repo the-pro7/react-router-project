@@ -6,9 +6,10 @@ const Navbar = lazy(() => import("./paths/Navbar"));
 const Home = lazy(() => import("./paths/Home"));
 
 function App() {
+  const [moviePageShowing, setMoviePageShowing] = useState(false)
   return (
     <>
-      <Navbar />
+      <Navbar moviePageShowing={moviePageShowing}/>
       <Suspense fallback={<h1 className="loading">Loading...</h1>}>
         <Routes>
           <Route path="/" element={<Home />} />

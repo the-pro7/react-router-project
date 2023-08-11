@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <main className="hero">
       <div className="hero__intro">
-        <h1>One place for all your favourite movies and shows</h1>
+        <h1>One place for all your favourite movies and shows.</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut maxime
           ea suscipit, labore minus error dolor quas quod exercitationem
@@ -20,7 +20,7 @@ const Home = () => {
       />
       <div className="hero__buttons">
         <Link to="/movies" className="hero__buttons--explore">Explore Movies</Link>
-        <Link to="signup">Signup Now</Link>
+        <Link to="signup" className="hero__buttons--signup">Signup Now</Link>
       </div>
     </main>
   );

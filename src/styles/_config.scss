@@ -31,3 +31,15 @@ $page-text-color-accent: #6c63ff;
     }
 }
 
+
+// Font weights
+$font-weghts: (
+  "bold": 700,
+  "medium": 500,
+  "regular": 400
+);
+
+// FUnction to get weights
+@function weights($weight) {
+  @return map-get($font-weghts, $weight)
+}

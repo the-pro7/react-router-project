@@ -1,23 +1,49 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faPlay,
+  faSun,
+  faMoon,
+  faDesktop,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Navbar = () => {
+/*
+To be used
+<FontAwesomeIcon icon={faMoon} />
+<FontAwesomeIcon icon={faSun} />
+<FontAwesomeIcon icon={faDesktop} />
+ */
+
+const Navbar = ({ moviePageShowing }) => {
   const [showMobileNav, setShowMobileNav] = useState(false);
+  const [showThemeContextMenu, setShowThemeContextMenu] = useState(false);
+
   // Functions
   function handleBurgerEvent() {
     setShowMobileNav((prev) => !prev);
     console.log(showMobileNav);
   }
 
+  function handleTheme() {
+    setShowThemeContextMenu((prev) => !prev);
+  }
+
   return (
     <nav className="nav">
-      <h1>VideoPanel</h1>
-      <div className="nav__search">
-        <input type="search" placeholder="Search a movie..." value={"hello"} />
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
-      </div>
+      <h1 className="nav__logo">
+        VideoPanel
+        <FontAwesomeIcon icon={faPlay} className="play" />
+      </h1>
+      {moviePageShowing ? (
+        <div className="nav__search">
+          <input type="search" placeholder="Search a movie..." value="" />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        </div>
+      ) : (
+        <h3 style={{ textAlign: "center" }}>Home</h3>
+      )}
       <ul
         className="nav__items"
         style={{ transform: showMobileNav ? "translateX(0)" : null }}
@@ -36,6 +62,28 @@ const Navbar = () => {
           <Link to="/favourites" className="link">
             Your Favourites
           </Link>
+        </li>
+        <li
+          className={
+            showThemeContextMenu ? "theme-selector show" : "theme-selector"
+          }
+          onClick={handleTheme}
+        >
+          Page Theme
+          <div className="theme-selector__themes">
+            <button>
+              <FontAwesomeIcon icon={faSun} />
+              Light
+            </button>
+            <button>
+              <FontAwesomeIcon icon={faMoon} />
+              Dark
+            </button>
+            <button>
+              <FontAwesomeIcon icon={faDesktop} />
+              Sytem
+            </button>
+          </div>
         </li>
       </ul>
       {/* Hmaburger menu */}
