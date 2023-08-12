@@ -16,7 +16,7 @@ To be used
 <FontAwesomeIcon icon={faDesktop} />
  */
 
-const Navbar = ({ moviePageShowing }) => {
+const Navbar = ({ moviePageShowing, setMovieShowing }) => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [showThemeContextMenu, setShowThemeContextMenu] = useState(false);
 
@@ -49,12 +49,12 @@ const Navbar = ({ moviePageShowing }) => {
         style={{ transform: showMobileNav ? "translateX(0)" : null }}
       >
         <li className="nav__items--item">
-          <Link to="/" className="link">
+          <Link to="/" className="link" onClick={() => setMovieShowing(false)}>
             Home
           </Link>
         </li>
         <li className="nav__items--item">
-          <Link to="/movies" className="link">
+          <Link to="/movies" className="link" onClick={() => setMovieShowing(true)}>
             Movies
           </Link>
         </li>
