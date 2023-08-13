@@ -1,10 +1,10 @@
 import { useState, lazy, Suspense, useEffect } from "react";
 import "./App.scss";
 import { Route, Routes } from "react-router-dom";
-import Movies from "./paths/Movies";
 // COmponents lazily loaded
 const Navbar = lazy(() => import("./paths/Navbar"));
 const Home = lazy(() => import("./paths/Home"));
+const Movies = lazy(() => import("./paths/Movies"))
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
