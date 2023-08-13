@@ -1,9 +1,8 @@
 @import "./config";
 
-$grid-breakpoint: 300px;
+$grid-breakpoint: 250px;
 
 .movies {
-    border: 3px solid red;
 
     &__results {
         color: $page-text-color;
@@ -12,7 +11,35 @@ $grid-breakpoint: 300px;
 
     &__container {
         display: grid;
-
+        grid-template-columns: repeat(auto-fit, minmax($grid-breakpoint, 1fr));
+        gap: 1em;
+        padding: 1em;
         
+
+        &--movie {
+            border-radius: 1rem;
+            box-shadow: 3px 4px 15px rgb(0 0 0 / .3);
+            overflow: clip;
+
+            .movie__poster {
+                width: 100%;
+                aspect-ratio: 1;
+            }
+
+            .movie__details {
+                // border: 3px solid firebrick;
+                padding: .5em;
+                
+                &--type {
+                    color: $page-text-color-accent;
+                    font-weight: 100;
+                }
+
+                &--title {
+                    color: $page-text-color;
+                    font-weight: weights(bold);
+                }
+            }
+        }
     }
 }

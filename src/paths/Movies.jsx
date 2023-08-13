@@ -1,4 +1,5 @@
 import React from "react";
+import Movie from "./Movie";
 
 const Movies = ({ searchQuery, movies }) => {
   const movie = {
@@ -17,20 +18,9 @@ const Movies = ({ searchQuery, movies }) => {
         <>No movies found</>
       )}
       <div className="movies__container">
-        <div className="movies__container--movie">
-          <img src={movie.Poster} alt={movie.Title} title={`${movie.Title} Poster`} className="movie__poster" />
-          <div className="movie_details">
-            <p className="movie__details--type">
-              {movie.Type.toUpperCase()}
-            </p>
-            <h2 className="movie__details--title">
-              {movie.Title}
-            </h2>
-            <p className="movie__details--release">
-              {movie.Year}
-            </p>
-          </div>
-        </div>
+        {movies.map((movie) => (
+          <Movie movie={movie} />
+        ))}
       </div>
     </main>
   );
