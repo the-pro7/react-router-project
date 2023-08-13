@@ -2,6 +2,8 @@
 $page-theme: #fefcfc;
 $page-text-color: #212529;
 $page-text-color-accent: #6c63ff;
+$breakpoint: 780px;
+$minbp: 1190px;
 // $accent-2: #228be6;
 
 @function family($name) {
@@ -16,30 +18,34 @@ $page-text-color-accent: #6c63ff;
 
 //   Flex mixin - center
 @mixin flexCentered($dir, $gap, $justify) {
-    display: flex;
-    justify-content: $justify;
-    align-items: center;
-    gap: $gap;
-    flex-direction: $dir;
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  gap: $gap;
+  flex-direction: $dir;
 }
-
 
 // Media query mixin
 @mixin media($breakpoint) {
-    @media screen and (max-width: $breakpoint) {
-        @content;
-    }
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
 }
 
+@mixin mediaMin($minbp) {
+  @media screen and (min-width: $minbp) {
+    @content;
+  }
+}
 
 // Font weights
 $font-weghts: (
   "bold": 700,
   "medium": 500,
-  "regular": 400
+  "regular": 400,
 );
 
 // FUnction to get weights
 @function weights($weight) {
-  @return map-get($font-weghts, $weight)
+  @return map-get($font-weghts, $weight);
 }

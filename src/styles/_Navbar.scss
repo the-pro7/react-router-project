@@ -1,7 +1,6 @@
 @import "./config";
 
 // variables
-$breakpoint: 700px;
 
 .nav {
   border-bottom: 1px solid $page-text-color;
@@ -43,12 +42,92 @@ $breakpoint: 700px;
         background-color: transparent;
       }
     }
+
+    .search-icon {
+      cursor: pointer;
+      transition: color 300ms ease-in-out;
+
+      &:hover {
+        color: $page-text-color-accent;
+      }
+    }
   }
 
   &__items {
     list-style-type: none;
     display: flex;
+    align-items: center;
     gap: 1em;
+    // flex-basis: 60%;
+
+    &--item {
+      .link {
+        text-decoration: none;
+        color: $page-text-color;
+      }
+    }
+
+    // Theme selector item
+    .theme-selector {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-flow: column wrap;
+      // width: 100%;
+      cursor: pointer;
+      font-size: 1rem;
+      border: 2px solid $page-text-color-accent;
+      border-radius: 4rem;
+      padding: 0.5em 0.6em;
+      background: $page-text-color-accent;
+      color: #fff;
+      transition: background 200ms ease-in-out;
+
+      &:hover {
+        background: lighten($page-text-color-accent, 10%);
+      }
+
+      &__themes {
+        display: inherit;
+        flex-direction: column;
+        background: $page-text-color-accent;
+        border-radius: 1rem;
+        position: absolute;
+        top: 3rem;
+        width: 160%;
+        padding-block: 1em;
+        transition: all 400ms ease-in-out;
+        transform: translateY(50%);
+        opacity: 0;
+        pointer-events: none;
+
+        button {
+          padding: 0.5em 1.5em;
+          border: 0;
+          display: inherit;
+          gap: 1em;
+          border: 0;
+          font-size: 1.3rem;
+          background: transparent;
+          color: $page-theme;
+          cursor: pointer;
+          transition: all 200ms ease;
+
+          &:hover {
+            background: lighten($page-text-color-accent, 10%);
+          }
+        }
+      }
+    }
+
+    // When active
+    .theme-selector.show {
+      .theme-selector__themes {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
   }
 
   &__hamburger {

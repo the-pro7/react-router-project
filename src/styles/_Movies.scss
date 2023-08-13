@@ -1,0 +1,18 @@
+@import "./config";
+
+$grid-breakpoint: 300px;
+
+.movies {
+    border: 3px solid red;
+
+    &__results {
+        color: $page-text-color;
+        padding: 1em;
+    }
+
+    &__container {
+        display: grid;
+
+        
+    }
+}

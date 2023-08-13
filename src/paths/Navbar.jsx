@@ -16,7 +16,13 @@ To be used
 <FontAwesomeIcon icon={faDesktop} />
  */
 
-const Navbar = ({ moviePageShowing, setMovieShowing }) => {
+const Navbar = ({
+  moviePageShowing,
+  setMovieShowing,
+  searchQuery,
+  setSearchQuery,
+  getMovies,
+}) => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [showThemeContextMenu, setShowThemeContextMenu] = useState(false);
 
@@ -38,11 +44,20 @@ const Navbar = ({ moviePageShowing, setMovieShowing }) => {
       </h1>
       {moviePageShowing ? (
         <div className="nav__search">
-          <input type="search" placeholder="Search a movie..." value="" />
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <input
+            type="search"
+            placeholder="Search a movie..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className="search-icon"
+            onClick={() => getMovies(searchQuery)}
+          />
         </div>
       ) : (
-        <h3 style={{ textAlign: "center" }}>Home</h3>
+        ""
       )}
       <ul
         className="nav__items"
@@ -54,7 +69,11 @@ const Navbar = ({ moviePageShowing, setMovieShowing }) => {
           </Link>
         </li>
         <li className="nav__items--item">
-          <Link to="/movies" className="link" onClick={() => setMovieShowing(true)}>
+          <Link
+            to="/movies"
+            className="link"
+            onClick={() => setMovieShowing(true)}
+          >
             Movies
           </Link>
         </li>
