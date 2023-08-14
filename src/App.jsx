@@ -1,9 +1,9 @@
 import { useState, lazy, Suspense, useEffect } from "react";
 import "./App.scss";
 import { Route, Routes } from "react-router-dom";
-// COmponents lazily loaded
+import Home from "./paths/Home";
+// Components lazily loaded
 const Navbar = lazy(() => import("./paths/Navbar"));
-const Home = lazy(() => import("./paths/Home"));
 const Movies = lazy(() => import("./paths/Movies"));
 
 function App() {
@@ -11,8 +11,6 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [moviePageShowing, setMoviePageShowing] = useState(false);
 
-  useEffect(() => {
-  });
 
   // API call
   const API_URL = `https://omdbapi.com/?apikey=33d0d5be`;
