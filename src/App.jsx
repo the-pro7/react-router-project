@@ -4,12 +4,15 @@ import { Route, Routes } from "react-router-dom";
 // COmponents lazily loaded
 const Navbar = lazy(() => import("./paths/Navbar"));
 const Home = lazy(() => import("./paths/Home"));
-const Movies = lazy(() => import("./paths/Movies"))
+const Movies = lazy(() => import("./paths/Movies"));
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [moviePageShowing, setMoviePageShowing] = useState(false);
+
+  useEffect(() => {
+  });
 
   // API call
   const API_URL = `https://omdbapi.com/?apikey=33d0d5be`;
@@ -17,9 +20,8 @@ function App() {
     try {
       const response = await fetch(`${API_URL}&s=${search}`);
       const data = await response.json();
-      setMovies(data?.Search)
-      console.log(movies)
-
+      setMovies(data?.Search);
+      console.log(movies);
     } catch (error) {
       console.log(error);
     }
@@ -27,8 +29,8 @@ function App() {
 
   // Call on page reload
   useEffect(() => {
-    getMovies("spiderman")
-  }, [])
+    getMovies("spiderman");
+  }, []);
   return (
     <>
       <Navbar
